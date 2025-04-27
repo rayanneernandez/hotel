@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Green Garden</title>
+    <link rel="stylesheet" href="inicial.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Hotel Green Garden</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#acomodacoes">Acomodações</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#reservas">Reservas</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="banner">
+        <!-- Imagem de fundo do banner -->
+        <div class="banner-img" style="background-image: url('');">
+            <div class="banner-text">
+                <h1>Bem-vindo ao Hotel Green Garden</h1>
+                <p><b>Experiência única de hospedagem em Gramado e outras cidades.<b></p>
+                <a href="#reservas" class="btn">Faça sua reserva</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="acomodacoes" class="section">
+        <h2>Acomodações</h2>
+        <div class="grid">
+            <a href="luxo-1.html" class="card">
+                <img src="images/apartamento-de-luxo-1.jpg" alt="Apartamento de Luxo">
+                <h3>Apartamento de Luxo</h3>
+                <p>10 apartamentos de luxo equipados com tudo o que você precisa para relaxar.</p>
+            </a>
+            <a href="luxoespecial.html" class="card">
+                <img src="images/apartamento-de-luxo-2.png" alt="Apartamento de Luxo Especial">
+                <h3>Apartamento de Luxo Especial</h3>
+                <p>15 apartamentos de luxo com características especiais para conforto adicional.</p>
+            </a>
+            <a href="suiteespecial.html" class="card">
+                <img src="images/suite.webp" alt="Suíte Especial">
+                <h3>Suíte Especial</h3>
+                <p>20 Suítes especialmente preparadas para ocasiões especiais.</p>
+            </a>
+            <a href="suitemaster.html" class="card">
+                <img src="images/suite master.png" alt="Suíte Master">
+                <h3>Suíte Master</h3>
+                <p>20 Suítes Master com o máximo de luxo e exclusividade.</p>
+            </a>
+        </div>
+    </section>
+    
+    
+    
+
+    <section id="servicos" class="section">
+        <h2>Serviços</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Serviço de Quarto</h3>
+                <p>Atendimento 24h para garantir todo o seu conforto.</p>
+            </div>
+            <div class="card">
+                <h3>Lavanderia</h3>
+                <p>Cuide de suas roupas com nosso serviço completo de lavanderia.</p>
+            </div>
+            <div class="card">
+                <h3>Restaurante</h3>
+                <p>Culinária de alto nível em nosso restaurante exclusivo.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="reservas" class="section">
+        <h2>Faça sua Reserva</h2>
+        <form action="#" id="reservaForm">
+            <input type="text" placeholder="Nome" required>
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Telefone" required>
+            <input type="date" required>
+            <select required>
+                <option value="" disabled selected>Tipo de Acomodação</option>
+                <option value="luxo">Apartamento de Luxo</option>
+                <option value="luxo-especial">Apartamento de Luxo Especial</option>
+                <option value="suite-especial">Suíte Especial</option>
+                <option value="suite-master">Suíte Master</option>
+            </select>
+            <button type="submit" class="btn">Reservar Agora</button>
+        </form>
+    </section>
+
+    <section id="contato" class="section">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para mais informações.</p>
+        <ul>
+            <li>Email: contato@greengarden.com</li>
+            <li>Telefone: (54) 1234-5678</li>
+            <li>Endereço: Rua Flores, 123, Gramado, RS</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Hotel Green Garden. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="inicial.js"></script>
+</body>
+</html>

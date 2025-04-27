@@ -1,0 +1,410 @@
+/* Reset básico para garantir consistência entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4caf50;
+    color: white;
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #388e3c;
+}
+
+.suite-banner{
+    background-image: url('images/apartamento-de-luxo-2.png');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+
+
+
+
+.suite-banner h2 {
+    font-size: 4rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 20px 30px;
+    border-radius: 10px;
+}
+
+.suite-info {
+    background-color: white;
+    padding: 20px;
+    max-width: 1000px;
+    margin: -50px auto 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Permite que os itens se ajustem em telas menores */
+    gap: 20px;
+}
+
+.suite-details,
+.suite-size {
+    width: calc(50% - 20px); /* Divide a largura em duas colunas */
+}
+
+.suite-details ul,
+.suite-size ul {
+    list-style: none;
+    font-size: 18px;
+}
+
+.suite-details ul li,
+.suite-size ul li {
+    margin-bottom: 10px;
+}
+
+.suite-size {
+    text-align: right;
+}
+
+.suite-size span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.suite-size p {
+    margin-top: 5px;
+    font-size: 16px;
+    color: gray;
+}
+
+/* Ajuste de layout das colunas de informações */
+.infos-lado-a-lado {
+    display: flex;
+    justify-content: space-between; /* Garante que o conteúdo se espalhe entre as colunas */
+    align-items: flex-start;
+    gap: 20px; /* Espaçamento entre as colunas */
+}
+
+.coluna {
+    width: calc(50% - 10px); /* Define que cada coluna ocupa 50% do espaço disponível (menos o espaçamento) */
+    font-size: 18px;
+}
+
+.coluna-90 {
+    width: 20%; /* Define que o "90 m²" ocupa 20% do espaço disponível */
+    font-size: 20px;
+    text-align: right; /* Alinha o texto à direita */
+    margin-top: 20px; /* Espaçamento entre as colunas */
+}
+
+.coluna-90 p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.suite-extras {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #fff;
+}
+
+.suite-extras h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.suite-extras-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.suite-extras-container img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.suite-extras-container p {
+    font-size: 1.2rem;
+    color: #080808;
+    max-width: 400px;
+    text-align: left;
+    margin: 0;
+}
+
+.suite-extras-container .text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.suite-extras-container .text-container p {
+    font-size: 1.2rem;
+    color: #080808;
+    max-width: 400px;
+    text-align: left;
+}
+
+/* Ajuste para o elemento com "90" */
+.suite-extras-container .extra-info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2rem;
+    color: #080808;
+    max-width: 400px;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.suite-extras-container .extra-info p {
+    margin: 0;
+}
+
+.suite-extras-container .extra-info span {
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #333;
+}
+
+/* Especificamente para a Netflix (não afetando o layout das descrições acima) */
+.netflix-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 100px auto;
+}
+
+.netflix-container img {
+    max-width: 220px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    padding: 10px;
+}
+
+.netflix-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #333;
+    text-align: center;
+}
+
+.netflix-text p {
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+
+/* Estilização da galeria */
+.gallery {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    width: 250px; /* Define tamanho fixo */
+    height: 250px; /* Define tamanho fixo */
+    overflow: hidden; /* Evita deformações */
+    border-radius: 8px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem se ajuste sem distorcer */
+    transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.zoom-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+    display: none;
+}
+
+.gallery-item:hover .zoom-icon {
+    display: block;
+}
+
+
+/* Lightbox - Fundo escuro cobrindo a tela */
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Conteúdo da Lightbox (Imagem centralizada) */
+.lightbox-content {
+    max-width: 90vw; /* Ocupa no máximo 90% da largura da tela */
+    max-height: 90vh; /* Ocupa no máximo 90% da altura da tela */
+    object-fit: contain; /* Mantém a proporção da imagem sem cortes */
+    border-radius: 8px;
+    display: block;
+    margin: auto; /* Garante que fique no centro */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center; /* Alinha verticalmente no centro */
+    justify-content: center; /* Alinha horizontalmente no centro */
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px; /* Limita a largura máxima do conteúdo */
+    margin: 0 10px; /* Espaçamento nas laterais */
+}
+
+
+.modal-content.confirmacao {
+    background: #4CAF50;
+    color: white;
+}
+
+.close {
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.button {
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+
+/* Centraliza o conteúdo principal */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+}
+
+/* Centraliza os botões lado a lado */
+.button-container {
+    display: flex;
+    gap: 10px;  /* Adiciona um espaço de 10px entre os botões */
+}
+
+/* Estilo dos elementos dentro do conteúdo centralizado */
+.center-content h2, 
+.center-content p {
+    margin: 10px 0;
+}
+
+
+
+footer {
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Suite Master</title>
+    <link rel="stylesheet" href="suitemaster.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Hotel Green Garden</div>
+            <ul>
+                <li><a href="inicial.html">Home</a></li>
+                <li><a href="#acomodacoes">Acomodações</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#reservas">Reservas</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="inicial.html">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="suite-banner">
+            <h2>Suite Master</h2>
+        </section>
+        <div class="suite-info">
+            <div class="infos-lado-a-lado">
+                <div class="coluna">
+                    <p>Garagem privativa</p>
+                    <p>Suítes totalmente automatizadas</p>
+                    <p>banheira térmica</p>
+                    <p>Piscina térmica com hidro</p>
+                    <p>3 Televisões smart de 58” e 50”</p>
+                    <p>Netflix habilitado e YouTube</p>
+                    <p>Lareira</p>
+                    <p>Canais disponiveis 100%</p>
+                </div>
+                <div class="coluna">
+                    <p>Produtos de banho</p>
+                    <p>Máquina de café Nespresso</p>
+                    <p>Frigobar com produtos variados</p>
+                    <p>10 playlists personalizadas</p>
+                    <p>Bluetooth</p>
+                    <p>Wi-Fi</p>
+                    <p>Secador de cabelo 1900w</p>
+                    <p>2 Ar condicionados cassete de 24000 btus</p>
+                </div>
+                
+                <div class="coluna-90">
+                    <p>120 m²</p>
+                    <p>aproximadamente</p>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <br>
+        
+        <!-- Nova seção adicionada -->
+        <section class="suite-extras">
+            <div class="suite-extras-container">
+                <img src="images/suite master.png" alt="Suíte Eros">
+                <div class="text-container">
+                    <p>FAÇA CADA SEGUNDO</p> 
+                    <p><strong>VALER A PENA!</strong></p>
+                </div>
+            </div>
+        </section>
+        <br>
+        <div class="netflix-container">
+
+            <div class="netflix-text">
+                <p><strong>NETFLIX</strong></p>
+                <p>Os melhores filmes e séries do momento liberados.</p>
+                <p>Aqui você faz todo tipo de maratona.</p>
+            </div>
+
+            <img src="images/netflix.png" alt="Netflix">
+        </div>
+        
+        
+
+        <br><br>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="images/master dark.jpg" alt="Suíte Luxo" onclick="openLightbox(this)">
+                <div class="zoom-icon">🔍</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/banheiro suite master.jpg" alt="Suíte Luxo" onclick="openLightbox(this)">
+                <div class="zoom-icon">🔍</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/suite master closet.jpg" alt="Suíte Luxo" onclick="openLightbox(this)">
+                <div class="zoom-icon">🔍</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/entrada master.jpg" alt="Suíte Luxo" onclick="openLightbox(this)">
+                <div class="zoom-icon">🔍</div>
+            </div>          
+
+
+        </div>
+        
+        <!-- Lightbox -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+            <span class="close">&times;</span>
+            <img class="lightbox-content" id="lightbox-img">
+        </div>
+    
+<br><br>
+
+
+<div class="center-content">
+    <h2>Valores</h2>
+    <p><strong>Domingo a Quinta (12 hs):</strong> R$ 499,00</p>
+    <p><strong>Sexta e Sábado (6 hs):</strong> R$ 499,00</p>
+    <p><strong>Diária:</strong> R$ 1700,00</p>
+    <p><strong>Hora adicional:</strong> R$ 170,00</p>
+    <p style="color: red;">*Cancelamentos devem ser feitos com 12h de antecedência para evitar multa.</p>
+
+    <div class="button-container">
+        <button class="button" onclick="openWhatsApp()">Entre em Contato</button>
+        <button class="button" onclick="openModal()">Reservar</button>
+    </div>
+</div>
+
+
+
+<!-- Modal para a reserva -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Finalize sua Reserva</h2>
+        <form id="reserva-form">
+            <label for="acompanhantes">Quantidade de Acompanhantes:</label>
+            <input type="number" id="acompanhantes" name="acompanhantes" min="0" max="5" required><br><br>
+
+            <label for="pagamento">Forma de Pagamento:</label>
+            <select id="pagamento" name="pagamento" required>
+                <option value="dinheiro">Dinheiro (Pago na Hora)</option>
+                <option value="cheque">Cheque</option>
+                <option value="credito">Cartão de Crédito</option>
+                <option value="debito">Cartão de Débito</option>
+                <option value="faturado">Faturado em 30 Dias</option>
+            </select>
+            <br><br>
+
+            <button type="submit" class="button">Confirmar Reserva</button>
+        </form>
+    </div>
+</div>
+
+<!-- Modal de confirmação -->
+<div id="confirmacao" class="modal confirmacao">
+    <div class="modal-content">
+        <span class="close" onclick="closeConfirmacao()">&times;</span>
+        <h3>Reserva Concluída!</h3>
+        <p>Sua reserva foi confirmada com sucesso.</p>
+    </div>
+</div>
+
+
+<br><br><br>
+
+
+
+<footer>
+    <p>&copy; 2025 Hotel Green Garden. Todos os direitos reservados.</p>
+</footer>
+
+    </main>
+
+    <script src="luxoespecial.js"></script>
+</body>
+</html>

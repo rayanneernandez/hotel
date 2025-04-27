@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Hotel Green Garden</title>
+    <link rel="stylesheet" href="usuariomaster.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="logo">
+                <h2>Hotel Green Garden</h2>
+            </div>
+            <nav>
+                <button class="nav-button active" data-tab="reservas">Reservas</button>
+                <button class="nav-button" data-tab="funcionarios">Funcionários</button>
+                <button class="nav-button" data-tab="consumo">Consumo</button>
+                <button class="nav-button" data-tab="relatorios">Relatórios</button>
+            </nav>
+            <div class="user-info">
+                <span class="user-name">Funcionário</span>
+                <a href="login.html" class="logout">Sair</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <!-- Seção de Reservas -->
+            <div class="tab-content active" id="reservas">
+                <h1>Gerenciar Reservas</h1>
+                <div class="actions">
+                    <input type="text" id="searchReserva" placeholder="Buscar reserva...">
+                    <button class="add-button" onclick="showModal('modalReserva')">Nova Reserva</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Quarto</th>
+                                <th>Código</th>
+                                <th>Hóspede</th>
+                                <th>Acomodação</th>
+                                <th>Diária</th>
+                                <th>Adultos</th>
+                                <th>Crianças</th>
+                                <th>Check-in</th>
+                                <th>Check-out</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="reservasTable">
+                            <!-- Preenchido via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Seção de Funcionários -->
+            <div class="tab-content" id="funcionarios">
+                <h1>Gerenciar Funcionários</h1>
+                <div class="actions">
+                    <input type="text" id="searchFuncionario" placeholder="Buscar funcionário...">
+                    <select id="filterCargo">
+                        <option value="">Todos os Cargos</option>
+                        <option value="gerente">Gerente</option>
+                        <option value="atendente">Atendente</option>
+                        <option value="porteiro">Porteiro</option>
+                        <option value="seguranca">Segurança</option>
+                        <option value="lavanderia">Lavanderia</option>
+                        <option value="camareira">Camareira</option>
+                        <option value="restaurante">Restaurante</option>
+                    </select>
+                    <button class="add-button" onclick="showModal('modalFuncionario')">Novo Funcionário</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Cargo</th>
+                                <th>Endereço</th>
+                                <th>Cidade</th>
+                                <th>Estado</th>
+                                <th>Telefone</th>
+                                <th>Data Nasc.</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="funcionariosTable">
+                            <!-- Preenchido via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Seção de Consumo (mantida do código anterior) -->
+            <div class="tab-content" id="consumo">
+                <h1>Controle de Consumo</h1>
+                <div class="actions">
+                    <input type="text" id="searchConsumo" placeholder="Buscar por quarto...">
+                    <button class="add-button" onclick="showModal('modalConsumo')">Adicionar Consumo</button>
+                </div>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Quarto</th>
+                                <th>Item</th>
+                                <th>Quantidade</th>
+                                <th>Valor</th>
+                                <th>Data</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="consumoTable">
+                            <!-- Preenchido via JavaScript -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Seção de Relatórios -->
+            <div class="tab-content" id="relatorios">
+                <h1>Relatórios</h1>
+                <div class="report-filters">
+                    <div class="filter-group">
+                        <label>Período:</label>
+                        <input type="date" id="dataInicio">
+                        <input type="date" id="dataFim">
+                    </div>
+                    <div class="filter-group">
+                        <label>Tipo:</label>
+                        <select id="tipoRelatorio">
+                            <option value="reservas">Reservas</option>
+                            <option value="funcionarios">Funcionários</option>
+                            <option value="consumo">Consumo</option>
+                            <option value="ocupacao">Taxa de Ocupação</option>
+                        </select>
+                    </div>
+                    <button onclick="gerarRelatorio()">Gerar PDF</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Nova Reserva -->
+    <div id="modalReserva" class="modal">
+        <div class="modal-content">
+            <h2>Nova Reserva</h2>
+            <form id="formReserva" onsubmit="return handleNovaReserva(event)">
+                <div class="input-group">
+                    <label for="nomeHospede">Nome do Hóspede</label>
+                    <input type="text" id="nomeHospede" required>
+                </div>
+                <div class="input-group">
+                    <label for="acomodacao">Acomodação</label>
+                    <select id="acomodacao" required>
+                        <option value="">Selecione...</option>
+                        <option value="standard">Quarto Standard</option>
+                        <option value="luxo">Quarto Luxo</option>
+                        <option value="suite">Suíte Master</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="adultos">Quantidade de Adultos</label>
+                    <input type="number" id="adultos" min="1" required>
+                </div>
+                <div class="input-group">
+                    <label for="criancas">Quantidade de Crianças</label>
+                    <input type="number" id="criancas" min="0" required>
+                </div>
+                <div class="input-group">
+                    <label for="checkIn">Check-in</label>
+                    <input type="date" id="checkIn" required>
+                </div>
+                <div class="input-group">
+                    <label for="checkOut">Check-out</label>
+                    <input type="date" id="checkOut" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeModal('modalReserva')">Cancelar</button>
+                    <button type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Novo Funcionário -->
+    <div id="modalFuncionario" class="modal">
+        <div class="modal-content">
+            <h2>Novo Funcionário</h2>
+            <form id="formFuncionario" onsubmit="return handleNovoFuncionario(event)">
+                <div class="input-group">
+                    <label for="nomeFuncionario">Nome Completo</label>
+                    <input type="text" id="nomeFuncionario" required>
+                </div>
+                <div class="input-group">
+                    <label for="cargo">Cargo</label>
+                    <select id="cargo" required>
+                        <option value="">Selecione...</option>
+                        <option value="gerente">Gerente</option>
+                        <option value="atendente">Atendente</option>
+                        <option value="porteiro">Porteiro</option>
+                        <option value="seguranca">Segurança</option>
+                        <option value="lavanderia">Lavanderia</option>
+                        <option value="camareira">Camareira</option>
+                        <option value="restaurante">Restaurante</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" required>
+                </div>
+                <div class="input-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" required>
+                </div>
+                <div class="input-group">
+                    <label for="estado">Estado</label>
+                    <select id="estado" required>
+                        <option value="">Selecione...</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <!-- Adicione todos os estados -->
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" required>
+                </div>
+                <div class="input-group">
+                    <label for="dataNascimento">Data de Nascimento</label>
+                    <input type="date" id="dataNascimento" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeModal('modalFuncionario')">Cancelar</button>
+                    <button type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Novo Consumo (mantido do código anterior) -->
+    <div id="modalConsumo" class="modal">
+        <div class="modal-content">
+            <h2>Adicionar Consumo</h2>
+            <form id="formConsumo" onsubmit="return handleNovoConsumo(event)">
+                <div class="input-group">
+                    <label for="quartoConsumo">Número do Quarto</label>
+                    <input type="number" id="quartoConsumo" required>
+                </div>
+                <div class="input-group">
+                    <label for="item">Item</label>
+                    <input type="text" id="item" required>
+                </div>
+                <div class="input-group">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade" required>
+                </div>
+                <div class="input-group">
+                    <label for="valor">Valor Unitário</label>
+                    <input type="number" id="valor" step="0.01" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeModal('modalConsumo')">Cancelar</button>
+                    <button type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="usuariomaster.js"></script>
+</body>
+</html>
